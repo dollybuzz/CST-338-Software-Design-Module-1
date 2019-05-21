@@ -1,0 +1,84 @@
+/* CST 338
+ * Module 1
+ * String Manipulation
+ * Dalia Faria
+ */
+
+//Part 1
+import java.util.Scanner;
+
+/* Purpose: Requests user's name, demonstrates basic string methods
+ * and string manipulation using the Scanner class.
+ * Preconditions: No implemented check in accordance with assignment specifications;
+ * however, user is instructed to capitalize the first initial in the first and last name.
+ * Postconditions: Results in the concatenation of first and last name,
+ * the length of the full name, the full name displayed in uppercase
+ * and lowercase letters.
+ */
+public class UserName 
+{
+	public static void main(String[] args) 
+	{
+        Scanner userinput = new Scanner(System.in);
+	   System.out.print("Please enter your first name with "
+	         + "the first initial capitalized: ");
+	   String firstName = userinput.nextLine();
+	   System.out.print("Please enter your last name with "
+            + "the first initial capitalized: ");
+	   String lastName = userinput.nextLine();
+	   String fullName = firstName + " " + lastName;
+	   System.out.println( "Your full name is " + fullName);
+	   int lengthOfName = (fullName.length() - 1);
+	   System.out.println("The length of your full name is " + lengthOfName);
+	   System.out.println("Your name in all uppercase: " + fullName.toUpperCase());
+	   System.out.println("Your name in all lowercase: " + fullName.toLowerCase());
+	}
+}
+
+//Part 2
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
+/* Purpose: Requests user to input a number of hours they dedicated toward the class,
+ * demonstrates string formatting using the DecimalFormat class.
+ * Preconditions:No implemented check in accordance with assignment specifications;
+ * user is instructed to input a value as a 3 decimal place integer.
+ * Postconditions: Results in the returned value of the user’s input rounded to 1 decimal place.
+ */
+public class WeeklyHours 
+{
+   public static void main(String[] args) 
+   {
+      Scanner userinput = new Scanner(System.in);
+      DecimalFormat decimalForm = new DecimalFormat("#.0");
+      final int MIN_HOURS = 12;
+      final int MAX_HOURS = 20;
+      System.out.println("The range of minimum to maximum hours: " + MIN_HOURS
+            + "-" + MAX_HOURS);
+      System.out.println("Within this range, how many hours have you spent" 
+            +" on this class this week?" 
+            + "\nPlease enter your value to 3 decimal places. ");
+      float userInputHours = userinput.nextFloat();
+      System.out.println("The number of hours you have spent on this class"
+            + " this week is " + decimalForm.format(userInputHours));
+   }
+}
+
+/*
+--Output Part 1--
+Please enter your first name with the first initial capitalized: Dalia
+Please enter your last name with the first initial capitalized: Faria
+Your full name is Dalia Faria
+The length of your full name is 10
+Your name in all uppercase: DALIA FARIA
+Your name in all lowercase: dalia faria
+ */
+
+/*
+--Output Part 2--
+The range of minimum to maximum hours: 12-20
+Within this range, how many hours have you spent on this class this week?
+Please enter your value to 3 decimal places. 
+16.562
+The number of hours you have spent on this class this week is 16.6
+*/
